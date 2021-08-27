@@ -12,12 +12,12 @@ pipeline {
         ''')
     }
     stages {
-        stage('Update days to close') {
+        stage('Update DB') {
             when {
                 expression { params.MIDNIGHT }
             }
             steps {
-                sh 'python update_days_to_close.py'
+                sh 'python update_db_command.py'
             }
         }
         stage('Send mail to receivers') {
@@ -25,7 +25,7 @@ pipeline {
                 expression { params.NOON }
             }
             steps {
-                sh 'python send_link_to_receivers.py'
+                sh 'python send_link_command.py'
             }
         }
     }
