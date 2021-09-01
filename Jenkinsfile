@@ -1,5 +1,6 @@
 pipeline {
-    agent { dockerfile {
+    agent { 
+        docker {
             image 'dom9316/letterlog-cron'
         }
     }
