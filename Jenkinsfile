@@ -1,5 +1,8 @@
 pipeline {
-    agent { dockerfile true }
+    agent { dockerfile {
+            image 'dom9316/letterlog-cron'
+        }
+    }
     parameters {
         booleanParam(name: 'MIDNIGHT', defaultValue: false)
         booleanParam(name: 'NOON', defaultValue: false)
